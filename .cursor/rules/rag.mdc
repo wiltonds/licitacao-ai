@@ -1,0 +1,21 @@
+---
+description: Regras para implementar RAG sobre a legislação (indexação e recuperação)
+globs: ["src/rag/**", "src/nodes/conformidade.py"]
+alwaysApply: false
+---
+
+# Indexação
+
+- Ao dividir a legislação em chunks, prefira cortar por artigo/inciso
+  (unidade jurídica), não por tamanho fixo de caracteres — cortar no
+  meio de um artigo quebra o sentido da norma.
+
+# Recuperação e resposta
+
+- Toda afirmação de conformidade/não conformidade deve citar a fonte
+  (lei + artigo) que a embasa. Nunca aceite uma resposta do tipo
+  "está em conformidade" sem o trecho da lei que sustenta isso —
+  esse é o ponto onde alucinação jurídica custa caro de verdade.
+- Se a recuperação não encontrar trecho relevante, retorne
+  `status_conformidade: "indeterminado"` em vez de forçar uma
+  resposta — mais seguro admitir que falta base do que arriscar.

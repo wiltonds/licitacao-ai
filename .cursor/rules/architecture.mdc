@@ -1,0 +1,27 @@
+---
+description: Arquitetura geral do sistema de automação de licitações
+globs:
+alwaysApply: true
+---
+
+# Contexto do projeto
+
+Sistema multiagente (LangGraph + Claude) que automatiza a leitura e
+análise de editais de licitação pública brasileiros. Divide-se em
+5 fases (ver README.md); este repositório implementa apenas a
+Fase 2 — Inteligência do edital.
+
+# Princípios de arquitetura
+
+- O estado (`src/state.py`, `EditalState`) é o único canal de
+  comunicação entre nós. Nós nunca chamam uns aos outros diretamente.
+- Cada nó é uma função pura na forma `def nome(state: EditalState) -> dict`.
+  Recebe o estado inteiro, devolve APENAS os campos que ele atualiza.
+  Nunca devolva o estado inteiro de volta — isso esconde o que o nó
+  realmente muda.
+- Novas etapas do pipeline (impugnação, precificação, etc.) entram
+  como novos nós em `src/nodes/`, registrados em `src/graph.py`.
+  Nunca implemente lógica de uma fase nova dentro de um nó existente.
+- Decisões de fluxo (ex.: "se não conforme, gerar impugnação") são
+  arestas condicionais no grafo (`add_conditional_edges`), nunca um
+  `if` escondido dentro da lógica de um nó.

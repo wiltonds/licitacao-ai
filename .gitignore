@@ -1,0 +1,13 @@
+# ambiente
+.venv/
+__pycache__/
+*.pyc
+
+# segredos
+.env
+
+# dados locais (não versionar editais/legislação reais)
+data/editais/*.pdf
+data/legislacao/*.pdf
+!data/editais/.gitkeep
+!data/legislacao/.gitkeep

@@ -1,0 +1,27 @@
+---
+description: Convenções de nomenclatura, docstrings e estilo do projeto
+globs: ["**/*.py"]
+alwaysApply: true
+---
+
+# Nomenclatura
+
+- Domínio do negócio em português: `ler_edital`, `checar_conformidade`,
+  `status_conformidade`. Termos de framework/biblioteca em inglês,
+  como o próprio LangGraph usa: `state`, `node`, `edge`, `graph`.
+- Não misture os dois dentro do mesmo termo (evite `check_conformidade`
+  ou `ler_state`).
+
+# Docstrings de nó
+
+Todo nó do grafo precisa de docstring explicando:
+1. Que papel ele cumpre no pipeline
+2. Quais campos do estado ele lê
+3. Quais campos ele escreve
+
+# TODOs
+
+Lógica ainda não implementada fica marcada com `# TODO:` explicando
+o que falta — nunca com uma implementação falsa/simulada sem aviso.
+Se pedir para "implementar X", procure primeiro o TODO correspondente
+antes de escrever código do zero.

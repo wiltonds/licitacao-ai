@@ -1,0 +1,7 @@
+langgraph
+langchain-anthropic
+anthropic
+pypdf
+python-dotenv
+chromadb
+pydantic
