@@ -56,7 +56,7 @@ tests/
 ## Roadmap
 
 - [x] Estrutura do grafo (state + 2 nós stub)
-- [ ] Extração estruturada do edital via RAG (Claude)
+- [x] Extração estruturada do edital via tool calling (Claude), com leitura direta de PDFs escaneados via visão
 - [ ] Cruzamento real com a Lei 14.133/2021 via RAG
 - [ ] Aresta condicional: gerar impugnação quando houver não conformidade
 - [ ] Fases 3, 4 e 5

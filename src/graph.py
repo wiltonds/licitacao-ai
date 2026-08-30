@@ -1,5 +1,7 @@
-from langgraph.graph import END, StateGraph
+from dotenv import load_dotenv
 
+load_dotenv()
+from langgraph.graph import END, StateGraph
 from src.nodes.conformidade import checar_conformidade
 from src.nodes.leitura import ler_edital
 from src.state import EditalState
@@ -26,6 +28,14 @@ def construir_grafo():
 
 
 if __name__ == "__main__":
+    import json
+
     app = construir_grafo()
-    resultado = app.invoke({"caminho_pdf": "data/editais/exemplo.pdf"})
-    print(resultado)
+    resultado = app.invoke({"pasta_licitacao": "data/editais/bento_goncalves_133_2026"})
+
+    print("Tamanho do texto bruto:", len(resultado["texto_bruto"]), "caracteres")
+    print()
+    print("Dados extraidos:")
+    print(json.dumps(resultado["dados_extraidos"], ensure_ascii=False, indent=2))
+    print()
+    print("Status conformidade (ainda placeholder):", resultado["status_conformidade"])

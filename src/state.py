@@ -13,8 +13,11 @@ class EditalState(TypedDict):
     informação, em vez de conversarem diretamente entre si.
     """
 
-    # entrada
-    caminho_pdf: str
+    # entrada: uma licitação real é um CONJUNTO de documentos (edital +
+    # anexos + termo de referência), não um único PDF — descobrimos isso
+    # na prática quando exigencias_habilitacao veio vazio de um edital
+    # cujas exigências estavam num anexo separado.
+    pasta_licitacao: str
 
     # preenchido pelo nó "leitura"
     texto_bruto: Optional[str]
