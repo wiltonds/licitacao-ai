@@ -6,6 +6,19 @@
 
 ![Portfolio architecture](./docs/portfolio-hero.svg)
 
+## Application Demo
+
+![Procurement AI demo](./docs/screenshots/procurement-ai-demo.svg)
+
+> **Demo mode:** synthetic/illustrative data is used where production data or infrastructure is not appropriate for a public portfolio.
+
+Run locally:
+
+```bash
+streamlit run demo_app.py
+```
+
+
 
 ![Architecture](./docs/architecture.svg)
 
