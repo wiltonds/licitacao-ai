@@ -4,6 +4,9 @@
 
 **Portfolio focus:** Agentic AI · LangGraph · RAG · Document Intelligence · LLMs · Information Retrieval · Decision Support
 
+![Portfolio architecture](./docs/portfolio-hero.svg)
+
+
 ![Architecture](./docs/architecture.svg)
 
 ## Business Problem
